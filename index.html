@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>World Outside · 沉浸式陪伴空间</title>
+  <link rel="stylesheet" href="./style.css" />
+</head>
+
+<body>
+  <!-- STEP 1：角色迎宾页 -->
+  <section class="welcome-screen" id="welcomeScreen">
+    <div class="welcome-bg">
+      <img id="welcomeScene" src="current/study.PNG" alt="当前场景" />
+      <div class="welcome-overlay"></div>
+    </div>
+
+    <div class="welcome-content">
+      <div class="welcome-copy">
+        <div class="eyebrow">WORLD OUTSIDE</div>
+        <h1>沉浸式陪伴空间</h1>
+        <p class="welcome-line" id="typewriterText"></p>
+
+        <button class="enter-btn" id="enterBtn">
+          进入空间
+        </button>
+      </div>
+
+      <div class="welcome-portrait-wrap">
+        <img id="welcomePortrait" class="welcome-portrait" src="images/gushiye.PNG" alt="角色立绘" />
+        <div class="portrait-glow"></div>
+      </div>
+    </div>
+
+    <div class="character-dock" id="welcomeCharacterDock">
+      <button class="avatar-btn active" data-character="gushiye" aria-label="顾时夜">
+        <img src="images/gushiye.PNG" alt="顾时夜" />
+      </button>
+      <button class="avatar-btn" data-character="yiyu" aria-label="易遇">
+        <img src="images/yiyu.PNG" alt="易遇" />
+      </button>
+      <button class="avatar-btn" data-character="baiyuan" aria-label="白远">
+        <img src="images/baiyuan.PNG" alt="白远" />
+      </button>
+      <button class="avatar-btn" data-character="xiaxiaoyin" aria-label="夏小音">
+        <img src="images/xiaxiaoyin.PNG" alt="夏小音" />
+      </button>
+    </div>
+  </section>
+
+  <!-- STEP 2：主控制台 -->
+  <main class="app-shell hidden" id="appShell">
+    <aside class="side-nav">
+      <div class="side-profile">
+        <div class="side-avatar-frame">
+          <img id="sideAvatar" src="images/gushiye.PNG" alt="当前角色" />
+        </div>
+        <div>
+          <div class="side-name" id="sideName">顾时夜</div>
+          <div class="side-status" id="sideStatus">正在陪你学习</div>
+        </div>
+      </div>
+
+      <nav class="mode-menu">
+        <button class="mode-btn active" data-mode="study">
+          <span>伴学</span>
+          <small>Study</small>
+        </button>
+        <button class="mode-btn" data-mode="sport">
+          <span>运动</span>
+          <small>Move</small>
+        </button>
+        <button class="mode-btn" data-mode="rest">
+          <span>休息</span>
+          <small>Rest</small>
+        </button>
+        <button class="mode-btn" data-mode="talk">
+          <span>对话</span>
+          <small>Talk</small>
+        </button>
+      </nav>
+
+      <div class="side-character-switch">
+        <div class="side-section-title">切换角色</div>
+        <div class="mini-avatar-grid">
+          <button class="mini-avatar active" data-character="gushiye">
+            <img src="images/gushiye.PNG" alt="顾时夜" />
+          </button>
+          <button class="mini-avatar" data-character="yiyu">
+            <img src="images/yiyu.PNG" alt="易遇" />
+          </button>
+          <button class="mini-avatar" data-character="baiyuan">
+            <img src="images/baiyuan.PNG" alt="白远" />
+          </button>
+          <button class="mini-avatar" data-character="xiaxiaoyin">
+            <img src="images/xiaxiaoyin.PNG" alt="夏小音" />
+          </button>
+        </div>
+      </div>
+
+      <div class="side-data">
+        <div class="data-row">
+          <span>今日陪伴</span>
+          <strong id="todayModeText">伴学中</strong>
+        </div>
+        <div class="data-row">
+          <span>专注进度</span>
+          <strong id="sideProgressText">0%</strong>
+        </div>
+        <div class="data-row">
+          <span>情绪状态</span>
+          <strong>平稳</strong>
+        </div>
+      </div>
+    </aside>
+
+    <section class="main-view" id="mainView">
+      <div class="view-bg">
+        <img id="viewScene" src="current/study.PNG" alt="当前模式场景" />
+        <div class="view-dim"></div>
+      </div>
+
+      <div class="view-header">
+        <div>
+          <div class="view-kicker">WORLD OUTSIDE · COMPANION</div>
+          <h2 id="modeTitle">今晚，先完成一段真正的积累。</h2>
+          <p id="modeSubtitle">他在这里，陪你把今天慢慢推进。</p>
+        </div>
+
+        <div class="header-pill" id="currentModePill">伴学模式</div>
+      </div>
+
+      <!-- 非对话模式：计时控制台 -->
+      <section class="focus-panel glass-panel" id="focusPanel">
+        <div class="panel-left">
+          <div class="panel-label" id="focusLabel">FOCUS TIMER</div>
+          <div class="timer-display" id="timerDisplay">25:00</div>
+          <div class="timer-hint" id="timerHint">专注时长 25 分钟</div>
+
+          <div class="progress-track">
+            <div class="progress-bar" id="progressBar"></div>
+          </div>
+
+          <div class="control-row">
+            <button class="primary-btn" id="toggleTimer">开始</button>
+            <button class="ghost-btn" id="resetTimer">重置</button>
+          </div>
+        </div>
+
+        <div class="panel-right">
+          <div class="companion-card">
+            <img id="consolePortrait" src="images/gushiye.PNG" alt="角色立绘" />
+          </div>
+        </div>
+      </section>
+
+      <!-- 对话模式：聊天界面 -->
+      <section class="chat-panel glass-panel hidden" id="chatPanel">
+        <header class="chat-header">
+          <div class="chat-person">
+            <img id="chatAvatar" src="images/gushiye.PNG" alt="聊天角色" />
+            <div>
+              <div class="chat-name" id="chatName">顾时夜</div>
+              <div class="chat-state">在线 · 正在听你说</div>
+            </div>
+          </div>
+        </header>
+
+        <div class="chat-list" id="chatList">
+          <!-- JS 动态渲染聊天气泡 -->
+        </div>
+
+        <footer class="chat-input-bar">
+          <input id="chatInput" type="text" placeholder="把今天的状态说给他听…" />
+          <button id="sendBtn">发送</button>
+        </footer>
+      </section>
+    </section>
+  </main>
+
+  <div class="toast-layer" id="toastLayer"></div>
+
+  <script src="./script.js"></script>
+</body>
+</html>
