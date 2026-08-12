@@ -30,7 +30,7 @@ document.addEventListener("DOMContentLoaded", () => {
       ],
     },
     baiyuan: {
-      name: "白远",
+      name: "柏源",
       avatar: "images/baiyuan.PNG",
       welcome:
         "把今天拆成几步，会轻松很多。别怕慢，我陪你稳稳往前走。",
@@ -42,7 +42,7 @@ document.addEventListener("DOMContentLoaded", () => {
       ],
     },
     xiaxiaoyin: {
-      name: "夏小音",
+      name: "夏萧因",
       avatar: "images/xiaxiaoyin.PNG",
       welcome:
         "如果累了，就先休息一下。你不是机器，也需要被好好照顾。",
