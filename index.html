@@ -6,29 +6,28 @@
   <title>World Outside · 沉浸式陪伴空间</title>
   <link rel="stylesheet" href="./style.css" />
 </head>
-
 <body>
-  <!-- STEP 1：角色迎宾页 -->
+  <!-- 封面 -->
   <section class="welcome-screen" id="welcomeScreen">
     <div class="welcome-bg">
       <img id="welcomeScene" src="current/study.PNG" alt="当前场景" />
       <div class="welcome-overlay"></div>
     </div>
 
-    <div class="welcome-content">
+    <div class="welcome-layout">
       <div class="welcome-copy">
         <div class="eyebrow">WORLD OUTSIDE</div>
         <h1>沉浸式陪伴空间</h1>
-        <p class="welcome-line" id="typewriterText"></p>
 
-        <button class="enter-btn" id="enterBtn">
-          进入空间
-        </button>
+        <p class="welcome-line" id="typewriterText">
+          我很想你...今天也辛苦了。慢一点没关系，我会陪你把节奏重新找回来。
+        </p>
+
+        <button class="enter-btn" id="enterBtn">进入空间</button>
       </div>
 
       <div class="welcome-portrait-wrap">
         <img id="welcomePortrait" class="welcome-portrait" src="images/gushiye.PNG" alt="角色立绘" />
-        <div class="portrait-glow"></div>
       </div>
     </div>
 
@@ -48,7 +47,7 @@
     </div>
   </section>
 
-  <!-- STEP 2：主控制台 -->
+  <!-- 主控制台 -->
   <main class="app-shell hidden" id="appShell">
     <aside class="side-nav">
       <div class="side-profile">
@@ -130,7 +129,6 @@
         <div class="header-pill" id="currentModePill">伴学模式</div>
       </div>
 
-      <!-- 非对话模式：计时控制台 -->
       <section class="focus-panel glass-panel" id="focusPanel">
         <div class="panel-left">
           <div class="panel-label" id="focusLabel">FOCUS TIMER</div>
@@ -154,7 +152,6 @@
         </div>
       </section>
 
-      <!-- 对话模式：聊天界面 -->
       <section class="chat-panel glass-panel hidden" id="chatPanel">
         <header class="chat-header">
           <div class="chat-person">
@@ -166,9 +163,7 @@
           </div>
         </header>
 
-        <div class="chat-list" id="chatList">
-          <!-- JS 动态渲染聊天气泡 -->
-        </div>
+        <div class="chat-list" id="chatList"></div>
 
         <footer class="chat-input-bar">
           <input id="chatInput" type="text" placeholder="把今天的状态说给他听…" />
